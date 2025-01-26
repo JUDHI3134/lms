@@ -21,7 +21,7 @@ const Navbar = () => {
           </>}
         </div>
         {user ? <UserButton /> :
-          <button onClick={() => openSignIn()} className='bg-emerald-500 text-white px-5 py-2 rounded-full'>Create Account</button>}
+          <button onClick={() => openSignIn()} className='bg-orange-500 text-white px-5 py-2 rounded-full'>Create Account</button>}
       </div>
 
       {/* for phone screen  */}
