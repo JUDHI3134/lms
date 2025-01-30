@@ -5,6 +5,7 @@ import Loading from '../../components/student/Loading';
 import { assets } from '../../assets/assets';
 import humanizeDuration from 'humanize-duration';
 import Footer from '../../components/student/Footer';
+import YouTube from "react-youtube"
 
 const CourseDetails = () => {
 
@@ -12,6 +13,7 @@ const CourseDetails = () => {
   const [courseData, setCourseData] = useState(null)
   const [openSections, setOpenSections] = useState({})
   const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false)
+  const [playerData, setPlayerData] = useState(null)
 
   const { allCourses, calculateRating, calculateChapterTime, calculateCourseDuration, calculateNoOfLectures, currency } = useContext(AppContext)
 
@@ -82,7 +84,11 @@ const CourseDetails = () => {
                           <div className='flex items-center justify-between w-full text-gray-800 text-xs md:text-default'>
                             <p>{lecture.lectureTitle}</p>
                             <div className='flex gap-2'>
-                              {lecture.isPreviewFree && <p className='text-blue-500 cursor-pointer'>Preview</p>}
+                              {lecture.isPreviewFree && <p
+                                onClick={() => setPlayerData({
+                                videoId: lecture.lectureUrl.split("/").pop()
+                              })}
+                                className='text-blue-500 cursor-pointer'>Preview</p>}
                               <p>{humanizeDuration(lecture.lectureDuration * 60 * 1000, { units: ["h", "m"] })}</p>
                             </div>
                           </div>
@@ -112,7 +118,12 @@ const CourseDetails = () => {
 
         {/* right column  */}
         <div className='max-w-[424px] z-10 shadow-lg rounded-t md:rounded-none overflow-hidden bg-white min-w-[300px] sm:min-w-[420px]'>
-          <img className='' src={courseData.courseThumbnail} alt="" />
+
+          {playerData ?
+            <YouTube videoId={playerData.videoId} opts={{ playerVars: { autoplay: 1 } }} iframeClassName='w-full aspect-video' />
+
+            :
+            <img className='' src={courseData.courseThumbnail} alt="" />}
           <div className='p-5'>
             <div className='flex items-center gap-2'>
               <img className='w-3.5' src={assets.time_left_clock_icon} alt="time_left_clock_icon" />
