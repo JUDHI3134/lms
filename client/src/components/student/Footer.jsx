@@ -9,7 +9,7 @@ const Footer = () => {
           <img src={assets.logo_dark} alt="logo" />
           <p className='mt-6 text-center md:text-left text-sm text-white/80'>Empowering learners worldwide with cutting-edge courses, expert instructors, and seamless learning experiences. Unlock your potential and start your journey today!</p>
         </div>
-        
+         
         <div className='flex flex-col items-center md:items-start w-full'>
           <h2 className='font-semibold text-white mb-5'>Company</h2>
           <ul className='flex md:flex-col w-full justify-between text-sm text-white/80 md:space-y-2'>
