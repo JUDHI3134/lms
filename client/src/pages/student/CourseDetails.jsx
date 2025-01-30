@@ -86,8 +86,8 @@ const CourseDetails = () => {
                             <div className='flex gap-2'>
                               {lecture.isPreviewFree && <p
                                 onClick={() => setPlayerData({
-                                videoId: lecture.lectureUrl.split("/").pop()
-                              })}
+                                  videoId: lecture.lectureUrl.split("/").pop()
+                                })}
                                 className='text-blue-500 cursor-pointer'>Preview</p>}
                               <p>{humanizeDuration(lecture.lectureDuration * 60 * 1000, { units: ["h", "m"] })}</p>
                             </div>
@@ -133,34 +133,34 @@ const CourseDetails = () => {
             <div className='flex items-center gap-3 pt-2'>
               <p className='text-gray-800 md:text-4xl text-2xl font-semibold'>{currency}{(courseData.coursePrice - courseData.discount * courseData.coursePrice / 100).toFixed(2)}</p>
               <p className='md:text-lg text-gray-500 line-through'>{currency}{courseData.coursePrice}</p>
-              <p className='md:text-lg text-gray-500'>{ courseData.discount}% off</p>
+              <p className='md:text-lg text-gray-500'>{courseData.discount}% off</p>
             </div>
 
 
             <div className='flex items-center text-sm md:text-default gap-4 pt-2 md:pt-4 text-gray-500'>
               <div className='flex items-center gap-1'>
                 <img src={assets.star} alt="star" />
-                <p>{ calculateRating(courseData)}</p>
+                <p>{calculateRating(courseData)}</p>
               </div>
 
               <div className='h-4 w-px bg-gray-500/40'></div>
 
               <div className='flex items-center gap-1'>
                 <img src={assets.time_clock_icon} alt="clock_icon" />
-                <p>{ calculateCourseDuration(courseData)}</p>
+                <p>{calculateCourseDuration(courseData)}</p>
               </div>
 
               <div className='h-4 w-px bg-gray-500/40'></div>
 
               <div className='flex items-center gap-1'>
-              <img src={assets.lesson_icon} alt="lesson_icon" />
-                <p>{ calculateNoOfLectures(courseData)} lessons</p>
+                <img src={assets.lesson_icon} alt="lesson_icon" />
+                <p>{calculateNoOfLectures(courseData)} lessons</p>
               </div>
 
             </div>
 
             <button className='mt-4 md:mt-6 w-full py-3 rounded bg-orange-600 text-white font-medium'>{isAlreadyEnrolled ? 'Already Enrolled' : 'Enroll Now'}</button>
-            
+
             <div className='pt-6'>
               <p className='md:text-xl text-lg font-medium text-gray-800'>What's in the Course?</p>
               <ul className='ml-4 pt-2 text-sm md:text-default list-disc text-gray-500'>
