@@ -34,7 +34,7 @@ const CourseDetails = () => {
 
   useEffect(() => {
     fetchAllCourses();
-  }, [])
+  }, [allCourses])
 
   return courseData ? (
     <>
